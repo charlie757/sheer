@@ -14,8 +14,9 @@ class CustomButton extends StatelessWidget {
    bool isLoading;
    bool isBorder;
    String img;
+   double fontSize;
    CustomButton({required this.title,this.onTap, this.color = ColorHelper.pinkColor,
-   this.height =50.0,this.width ,this.isLoading=false,this.isBorder=false,this.img=''
+   this.height =50.0,this.width ,this.isLoading=false,this.isBorder=false,this.img='',this.fontSize = 17
    });
 
   @override
@@ -53,7 +54,7 @@ class CustomButton extends StatelessWidget {
           CustomText(title: title,
           color:color==ColorHelper.whiteColor?ColorHelper.appTheme: ColorHelper.whiteColor,
           fontFamily: FontfamilyHelper.interBold,
-          fontsize: 17
+          fontsize: fontSize
               ),
         ],
       ));

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sheero/core/utils/color_helper.dart';
 import 'package:sheero/core/utils/fontfamily_helper.dart';
+import 'package:sheero/core/utils/routes_helper.dart';
 import 'package:sheero/core/utils/screen_size_helper.dart';
 import 'package:sheero/localization/language_constraints.dart';
+import 'package:sheero/presentation/screens/dashboard/myTask/create_challenge_screen.dart';
 import 'package:sheero/presentation/widget/appbar.dart';
 import 'package:sheero/presentation/widget/custom_button.dart';
 import 'package:sheero/presentation/widget/custom_text.dart';
@@ -79,14 +81,18 @@ class _CreateTaskScreenState extends State<CreateTaskScreen> {
               ),
             ),
             ScreenSize.height(40),
-            taskType(title: getTranslated('public', context)!),
+            taskType(title: getTranslated('public', context)!,color: ColorHelper.lightBlueColor),
             ScreenSize.height(12),
             taskType(title: getTranslated('private', context)!),
             ScreenSize.height(12),
             taskType(title: getTranslated('friendOnly', context)!),
             Padding(
               padding: const EdgeInsets.only(top: 32, left: 12, right: 12),
-              child: CustomButton(title: getTranslated('submit', context)!),
+              child: CustomButton(title: getTranslated('submit', context)!,
+              onTap: (){
+                RoutesHelper.pushCupertinoNavigation(const CreateChallengeScreen());
+              },
+              ),
             ),
           ],
         ),

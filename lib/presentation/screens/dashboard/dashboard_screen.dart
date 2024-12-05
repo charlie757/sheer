@@ -33,8 +33,7 @@ const SettingScreen()
       builder: (context,myProvider,child) {
         return Scaffold(
           body: SafeArea(
-            child: HomeScreen()
-            // list[myProvider.currentIndex]
+            child: list[myProvider.currentIndex]
             ),
           bottomNavigationBar: Container(
             height: 65,

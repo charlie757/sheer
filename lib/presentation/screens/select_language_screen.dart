@@ -16,7 +16,7 @@ class SelectLanguageScreen extends StatefulWidget {
 
 class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
 
-int selectedLanguage = 0;
+int selectedLanguage = -1;
 
 
   @override

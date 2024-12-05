@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sheero/core/utils/fontfamily_helper.dart';
+import 'package:sheero/core/utils/routes_helper.dart';
 import 'package:sheero/core/utils/screen_size_helper.dart';
 import 'package:sheero/localization/language_constraints.dart';
+import 'package:sheero/presentation/screens/dashboard/myFriend/chat_screen.dart';
 import 'package:sheero/presentation/widget/appbar.dart';
 import 'package:sheero/presentation/widget/custom_searchbar.dart';
 import 'package:sheero/presentation/widget/custom_text.dart';
@@ -34,7 +36,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
             itemBuilder: (context,index){
               return InkWell(
                 onTap: (){
-                  // RoutesHelper.pushCupertinoNavigation(const MyProfileScreen());
+                  RoutesHelper.pushCupertinoNavigation(const ChatScreen());
                 },
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,

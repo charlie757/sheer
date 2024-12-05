@@ -116,7 +116,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          taskType(title: getTranslated('public', context)!,),
+          taskType(title: getTranslated('public', context)!,color: ColorHelper.lightBlueColor),
           ScreenSize.height(19),
           taskType(title: getTranslated('private', context)!,),
           ScreenSize.height(19),
