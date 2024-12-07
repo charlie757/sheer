@@ -4,6 +4,7 @@ import 'package:sheero/core/utils/fontfamily_helper.dart';
 import 'package:sheero/core/utils/routes_helper.dart';
 import 'package:sheero/core/utils/screen_size_helper.dart';
 import 'package:sheero/localization/language_constraints.dart';
+import 'package:sheero/presentation/screens/dashboard/settings/calendar_screen.dart';
 import 'package:sheero/presentation/screens/dashboard/settings/friend_request_screen.dart';
 import 'package:sheero/presentation/screens/dashboard/settings/my_profile_screen.dart';
 import 'package:sheero/presentation/screens/dashboard/settings/task_request_screen.dart';
@@ -101,6 +102,9 @@ class _SettingScreenState extends State<SettingScreen> {
         break;
       case 1:
         // RoutesHelp5er.pushCupertinoNavigation(const NotificationScreen());
+        break;
+        case 2:
+        RoutesHelper.pushCupertinoNavigation(const CalendarScreen());
         break;
       case 3:
         RoutesHelper.pushCupertinoNavigation(const TaskRequestScreen());

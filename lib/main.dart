@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sheero/core/constants/app_constants.dart';
 import 'package:get/get.dart';
 import 'package:sheero/data/datasources/session_manager.dart';
@@ -11,15 +12,17 @@ import 'package:provider/provider.dart';
 import 'package:sheero/providers/dashboard_provider.dart';
 import 'package:sheero/providers/localization_provider.dart';
 import 'package:sheero/providers/onboarding_provider.dart';
-import 'package:sheero/providers/otp_provider.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await SessionManager().init();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MultiProvider(
     providers: [
     ChangeNotifierProvider(create: (_) => LocalizationProvider()),
     ChangeNotifierProvider(create: (_) => OnboardingProvider()),
-    ChangeNotifierProvider(create: (_) => OtpProvider()),
     ChangeNotifierProvider(create: (_) => DashboardProvider()),
     ],
     child: const MyApp()));
@@ -35,9 +38,8 @@ class MyApp extends StatelessWidget {
     for (var language in AppConstants.languages) {
       locals.add(Locale(language.languageCode!, language.countryCode));
     }
-  
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Sheero',
       navigatorKey: navigatorKey,
        locale: Provider.of<LocalizationProvider>(context,).locale,
       localizationsDelegates: [

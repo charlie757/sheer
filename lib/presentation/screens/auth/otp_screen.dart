@@ -20,66 +20,74 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
-    return Consumer<OtpProvider>(builder: (context, myProvider, child) {
-      return Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 30,left: 25,right: 25),
-            child: Align(
-              alignment: Alignment.center,
-              child: Column(
-                children: [
-                  Image.asset(
-                    ImageHelper.verificationImage,
-                    height: 220,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: otpField(context, myProvider),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 25),
-                    child: Text.rich(
-                        textAlign: TextAlign.center,
-                        TextSpan(
-                            text:
-                                "${getTranslated('resendCodeIn', context)!} ",
-                            style: const TextStyle(
-                                fontSize: 13,
-                                fontFamily: FontfamilyHelper.interRegular,
-                                color: ColorHelper.whiteColor),
-                            children: [
-                              TextSpan(
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    // Navigator.pop(context);
-                                  },
-                                text: '00:58',
-                                style: const TextStyle(
-                                    decorationColor: ColorHelper.pinkColor,
-                                    fontSize: 13,
-                                    fontFamily: FontfamilyHelper.interRegular,
-                                    color: ColorHelper.pinkColor),
-                              )
-                            ])),
-                  )
-                ],
+    return ChangeNotifierProvider(
+      create: (context)=>OtpProvider(),
+      child: Consumer<OtpProvider>(builder: (context, myProvider, child) {
+        return Scaffold(
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30,left: 25,right: 25),
+              child: Align(
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    Image.asset(
+                      ImageHelper.verificationImage,
+                      height: 220,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: otpField(context, myProvider),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 25),
+                      child: Text.rich(
+                          textAlign: TextAlign.center,
+                          TextSpan(
+                              text:
+                                  "${getTranslated('resendCodeIn', context)!} ",
+                              style: const TextStyle(
+                                  fontSize: 13,
+                                  fontFamily: FontfamilyHelper.interRegular,
+                                  color: ColorHelper.whiteColor),
+                              children: [
+                                TextSpan(
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      // Navigator.pop(context);
+                                    },
+                                  text: '00:58',
+                                  style: const TextStyle(
+                                      decorationColor: ColorHelper.pinkColor,
+                                      fontSize: 13,
+                                      fontFamily: FontfamilyHelper.interRegular,
+                                      color: ColorHelper.pinkColor),
+                                )
+                              ])),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-        bottomNavigationBar: Padding(padding:const EdgeInsets.only(left: 30,right: 37,bottom: 40),
-        child: CustomButton(title: getTranslated('verify', context)!,
-        onTap: (){
-          RoutesHelper.pushCupertinoNavigation(const ChangePasswordScreen());
-        },
-        
-        ),
-        ),
-      );
-    });
+          bottomNavigationBar: Padding(padding:const EdgeInsets.only(left: 30,right: 37,bottom: 40),
+          child: CustomButton(title: getTranslated('verify', context)!,
+          onTap: (){
+            RoutesHelper.pushCupertinoNavigation(const ChangePasswordScreen());
+          },
+          
+          ),
+          ),
+        );
+      }),
+    );
   }
 
   otpField(BuildContext context, OtpProvider provider) {
@@ -87,7 +95,7 @@ class _OtpScreenState extends State<OtpScreen> {
       width: 220,
       child: PinCodeTextField(
         readOnly: provider.isLoading,
-        controller: provider.otpController,
+        controller:provider.otpController,
         cursorColor: ColorHelper.whiteColor,
         autovalidateMode: AutovalidateMode.disabled,
         cursorHeight: 20,

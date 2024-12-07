@@ -75,7 +75,7 @@ class CustomTextfield extends StatelessWidget {
           errorBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: ColorHelper.redColor)),
           focusedErrorBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: ColorHelper.whiteColor))),
+              borderSide: BorderSide(color: ColorHelper.redColor))),
       onChanged: onChanged,
       onTap: onTap,
       validator: validator,

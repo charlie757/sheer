@@ -93,5 +93,22 @@
       "taskCompleted":"Task Completed",
       "taskRequest":"Task Request",
       "friendRequest":"Friend Request",
-      "youWantToLogout":"Are you sure, you want to logout?"
+      "youWantToLogout":"Are you sure, you want to logout?",
+      "hour":"Hour",
+      "minute":"Minute",
+      "endDate":"End Date",
+      "date":"Date",
+      "month":"Month",
+      "year":"Year",
+      "writeYourNoteHere":"Write your note here",
+      "enterFirstName":"Enter first name",
+      "enterLastName":"Enter last name",
+      "enterPhoneNumber":"Enter phone number",
+      "validPhoneNumber":"Phone number should be valid",
+      "enterValidEmailId":"Please enter valid email ID",
+      "passwordMustAtLeast":"Password must be at least 6 characters",
+      "passwordNotMatch":"Password does not match",
+      "acceptTermsCondition":"Accept terms & condition",
+      "enterConfirmPassword":"Enter confirm password",
+      "enterConfirmNewPassword":"Enter confirm new password"
 }
