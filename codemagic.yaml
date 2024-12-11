@@ -1,0 +1,38 @@
+# codemagic.yaml
+workflows:
+  flutter-release:
+    name: Flutter Release Workflow
+    max_build_duration: 180  # Timeout for build in minutes (optional)
+    
+    # Define the environment (you can specify Flutter version, Gradle version, etc.)
+    environment:
+      flutter: stable  # Using the stable version of Flutter
+      ios:
+        xcode: latest  # Use the latest version of Xcode for iOS builds
+      # android:
+      #   gradle: 6.9  # You can specify a different version of Gradle if needed
+
+    # Build scripts - define commands to run during the build process
+    scripts:
+      - flutter pub get  # Install dependencies
+      - flutter test  # Optional: run tests (you can skip this if unnecessary)
+
+    jobs:
+      build:
+        name: Build Flutter App (Release)
+        scripts:
+          # Build release APK (for Android)
+          - flutter build apk --release
+          
+          # Build AAB (Android App Bundle, recommended for Play Store)
+          - flutter build appbundle --release
+          
+          # Build release IPA (for iOS)
+          - flutter build ios --release --no-codesign
+
+    # Store the generated build artifacts (APK/AAB/IPA) for later use
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk  # Save APK file
+      - build/app/outputs/bundle/release/app-release.aab  # Save AAB file
+      - build/ios/ipa/*.ipa  # Save IPA file for iOS (if building for iOS)
+
