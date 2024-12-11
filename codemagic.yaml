@@ -25,10 +25,10 @@ workflows:
           - flutter build apk --release
           
           # Build AAB (Android App Bundle, recommended for Play Store)
-          - flutter build appbundle --release
+          # - flutter build appbundle --release
           
           # Build release IPA (for iOS)
-          - flutter build ios --release --no-codesign
+          # - flutter build ios --release --no-codesign
 
     # Store the generated build artifacts (APK/AAB/IPA) for later use
     artifacts:
